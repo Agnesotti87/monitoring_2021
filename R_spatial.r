@@ -52,6 +52,8 @@ covid
 head(covid)
 #visualizza il summary
 summary(covid)
+# visualizza solo i nomi assegnati a righe e colonne ####### NEW FUNCTION
+names(covid)
 #grafico distribuzione geografica covid, utilizzando lat e long e geometria puntuale
 ggplot(covid, aes(x=lon, y=lat)) + geom_point()
 # aggiungere il dettaglio della dimensione dei punti in base al numero dei casi
