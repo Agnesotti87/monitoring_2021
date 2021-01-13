@@ -67,3 +67,4 @@ ggplot(covid, aes(x = lon, y = lat, size = cases)) + geom_point()
 
 
 
+
