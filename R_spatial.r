@@ -3,7 +3,7 @@ library(sp)
 #recall meuse data
 data(meuse)
 #check data meuse
-mesue
+meuse
 head(meuse)
 #assegnare coordinate ai dati
 #nel pacchetto sp c'è il comando coordinates che permette di dire a R quali valori usare come coordinate
