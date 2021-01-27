@@ -67,6 +67,14 @@ plot(cases,col=cl)
 points(covid_planar)
 plot(coastlines, add=TRUE)
 
+#let's play with points dimension
+#install sf packages: codifica dati vettoriali, ti serve così puoi "giocare" coi punti come fossero oggetti grafici
+install.packages(sf)
+library(sf)
+#
+Spoints<- st_as_sf(covid, coords=c("lon","lat"))
+points(Spoints$cases, cex=cases)
+
 # TIPS: if it takes time to elaborate map is because of coastlines...let's simplify it!
 gSimplify(coastlines,tol=3;topologypreserve=T) #ERROREEEEEEEEEEEEEEEEE SCRIVI A DUCCIO!!!!!!!!!!
 
