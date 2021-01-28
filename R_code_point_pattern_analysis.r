@@ -77,6 +77,66 @@ points(Spoints$cases, cex=cases)
 
 # TIPS: if it takes time to elaborate map is because of coastlines...let's simplify it!
 gSimplify(coastlines,tol=3;topologypreserve=T) #ERROREEEEEEEEEEEEEEEEE SCRIVI A DUCCIO!!!!!!!!!!
+####### Leonardo Zabotti data
 
+# setwd for Windows
+# setwd("C:/lab/")
 
+# setwd Mac
+# setwd("/Users/yourname/lab/")
+
+# Linux
+setwd("~/lab/")
+
+leo <- read.table("dati_zabotti.csv", header=T, sep=",")
+
+head(leo)
+
+attach(leo)
+
+library(spatstat)
+summary(leo)
+
+leo_ppp <- ppp(x, y, c(2300000,2325000), c(5005000,5045000))
+
+plot(leo_ppp)
+
+density_map <- density(leo_ppp)
+plot(density_map)
+points(leo_ppp)
+
+# save the workspace:
+
+# windows and Mac: File | save workspace 
+
+# for linux
+# q()
+# click yes
+
+#INTERPOLATION OF STUDENTS' DATA
+#set wd
+setwd("C:/lab/")
+#load workspace
+load("point_pattern_analysis.RData")
+#let's set variables we want to use to interpolate
+marks(leo_ppp) <- chlh
+chlh_map <- Smooth(leo_ppp)
+cl <- colorRampPalette(c('yellow','orange','red','green'))(100)
+plot(chlh_map, col=cl)
+points(leo_ppp)
+#multipanel
+par(mfrow=c(1,3))   #mf=multifuncions 1=row, 3=columns
+# put grafs u want to plot
+
+# first graph: density map
+plot(density_map, col=cl)
+points(leo_ppp)
+
+# second graph
+plot(chlh_map, col=cl)
+points(leo_ppp)
+
+# third graph
+plot(chls_map, col=cl)
+points(leo_ppp)
 
