@@ -2,7 +2,7 @@
 install.packages(c("raster", "RStoolbox"))
 library(raster)
 library(RStoolbox)
-#set the work directori
+#set the work directory
 setwd("C:/lab/")
 #upload images and give file a name
 p224r63_2011<-brick("p224r63_2011_masked.grd")
