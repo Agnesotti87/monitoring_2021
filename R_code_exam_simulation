@@ -1,0 +1,21 @@
+#install and recall ncdf4
+install.packages("ncdf4")
+library(ncdf4)
+#upload first raster file (temperature in october 2020)
+t1 <- raster("c_gls_LST10-DC_202010010000_GLOBE_GEO_V1.2.1")
+#since is a single layer file you can open it with function "raster"
+# setwd("C:/lab/")  # windows
+# setwd("/Users/name/lab/") # mac
+# importing images_January temperature 
+tjan <- raster("c_gls_LST10-DC_202101010000_GLOBE_GEO_V1.2.1.nc")
+plot(tjan)
+#change color
+cltjan <- colorRampPalette(c('blue','yellow','red'))(100) # 
+plot(tjan, col=cltjan)
+#import and plot temperature of October
+toct <- raster("c_gls_LST10-DC_202010010000_GLOBE_GEO_V1.2.1.nc")
+plot(toct, col=cltjan)
+#and check difference
+dift <- tjan - toct
+cldif <- colorRampPalette(c('blue','white','red'))(100) # 
+plot(dift, col=cldif)
